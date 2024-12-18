@@ -5,15 +5,15 @@ class Calculator:
     def __init__(self, root):
         self.root = root
         self.root.title(" Calculator")
-        self.root.resizable(False, False)  # Prevent window resizing
-        self.root.configure(bg="#2E2E2E")  # Set background color
+        self.root.resizable(False, False)  
+        self.root.configure(bg="#2E2E2E")  
 
-        # Initialize calculator state
+    
         self.current_input = ""
         self.first_number = None
         self.operation = None
 
-        # Create display Entry widget
+        
         self.display = tk.Entry(root, width=16, font=("Arial", 24), borderwidth=2, relief="ridge",
                                 bg="#1C1C1C", fg="white", justify='right')
         self.display.grid(row=0, column=0, columnspan=4, padx=10, pady=20, ipady=10)
@@ -55,7 +55,7 @@ class Calculator:
             {'text': 'CLEAR', 'row': 5, 'col': 0, 'colspan': 4, 'cmd': self.clear_display, 'bg': "#FF5733"}
         ]
 
-        # Create and place buttons
+        
         for btn in buttons:
             self.create_button(btn, button_props)
 
@@ -93,7 +93,7 @@ class Calculator:
         Sets the current operation and stores the first number.
         """
         if self.current_input == "":
-            return  # Do nothing if no input
+            return  
         try:
             self.first_number = float(self.current_input)
         except ValueError:
@@ -108,7 +108,7 @@ class Calculator:
         Performs the calculation based on the set operation and displays the result.
         """
         if self.operation is None or self.current_input == "":
-            return  # Nothing to calculate
+            return  
 
         try:
             second_number = float(self.current_input)
